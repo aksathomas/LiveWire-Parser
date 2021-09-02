@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Libre Franklin' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/codemirror.min.js"></script>
+    <link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/mode/javascript/javascript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/mode/markdown/markdown.min.js" integrity="sha512-M1xCxP7Cdf+uWhKzPWcI1rMEXDiEyxTyVqRfzGVGoim93W+IWPaJL3gni6aGuE9HJcIMUFqLtLY5ypeNtguQPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/darcula.min.css" integrity="sha512-kqCOYFDdyQF4JM8RddA6rMBi9oaLdR0aEACdB95Xl1EgaBhaXMIe8T4uxmPitfq4qRmHqo+nBU2d1l+M4zUx1g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <title>Markdown Parser</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+
+            <nav class="nav-container">
+                <div class="nav-logo ">
+                    <img src="/Logo.JPG" height="90px" width="280px">
+                </div>
+                <div class="flex-grow"></div>
+                <div class="nav-links">
+                    <ul class="menu ">
+                        <b>
+                        <li>Preview as <i class="arrow down"></i></li>
+                        <li>Export as <i class="arrow down"></i></li>
+                        <li class='dropdown'>Save to <i class="arrow down"></i>
+                            <div class="dropdown-content">
+                                <a href="#">Google Drive</a>
+                                <a href="#">Github</a>
+                                <a href="#">One Drive</a>
+                              </div>
+                        </li>
+                        <li>Import from <i class="arrow down"></i></li>
+                    </b>
+                    </ul>
+                </div>
+            </nav>
+
+
+        </header>
+        <div class="words">
+            <b>Number of words:
+            <span id="show_words ">0</span> <br> Characters:
+            <span id="show_char ">0</span> </b>
+        </div>
+        <div class="textbox">
+            <div class="textinput">
+                <textarea placeholder="Enter text here" id="textareainput" autocomplete="off"></textarea>
+            </div>
+
+            <div class="textoutput">
+                <p id="textareaoutput"></p>
+            </div>
+        </div>
+        <script src="/scripts.js "></script>
+        <script src="/wordcount.js"></script>
+        <script>
+            var editor = CodeMirror.fromTextArea(document.getElementById('textareainput'), {
+                mode: 'markdown',
+                tabSize: 7,
+                lineNumbers: true,
+                firstLineNumber: 1,
+                theme: 'darcula',
+
+            })
+            editor.setSize(757, 500);;
+        </script>
+</body>
+
+</html>
